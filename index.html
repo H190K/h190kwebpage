@@ -430,6 +430,33 @@
             transform: scale(1.05);
         }
 
+        /* Donation Section */
+        #donation {
+            background-color: #111; /* Slightly lighter than default */
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #donation h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 0.5s;
+        }
+
+        #donation a img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        #donation a img:hover {
+            transform: scale(1.05);
+        }
+
         /* Footer */
         footer {
             background-color: #000;
@@ -511,6 +538,11 @@
                 font-size: 1.3rem;
                 margin: 0 10px;
             }
+
+            /* Donation Section Adjustments for Mobile */
+            #donation a img {
+                max-width: 200px;
+            }
         }
 
         /* Animations */
@@ -551,6 +583,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#donation">Donate</a></li> <!-- Optional: Add Donation Link to Nav -->
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -677,6 +710,16 @@
                     <p id="form-message" style="display: none;"></p>
                 </form>
             </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donation">
+        <div class="container">
+            <h2>Donate</h2>
+            <a href="https://nowpayments.io/donation?api_key=J0QACAH-BTH4F4F-QDXM4ZS-RCA58BH" target="_blank" rel="noreferrer noopener">
+                <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
+            </a>
         </div>
     </section>
 
