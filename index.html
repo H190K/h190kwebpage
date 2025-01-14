@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     
     <style>
         /* Base Styles */
@@ -647,14 +648,14 @@
                     <button class="btn-secondary" onclick="window.open('https://wa.h190k.com', '_blank')">View Project</button>
                 </div>
                 <!-- Project 4: QR Generator Browser Extension -->
-<div class="project-card">
-    <a href="https://github.com/H190K/qrcodegeneratorbrowserExtension" target="_blank">
-        <img src="qrextension.png" alt="QR Generator Browser Extension">
-    </a>
-    <h3>QR Generator Browser Extension</h3>
-    <p>A Chrome-based extension for generating QR codes directly in your browser.</p>
-    <button class="btn-secondary" onclick="window.open('https://github.com/H190K/qrcodegeneratorbrowserExtension', '_blank')">Download Extension</button>
-</div>
+                <div class="project-card">
+                    <a href="https://github.com/H190K/qrcodegeneratorbrowserExtension" target="_blank">
+                        <img src="qrextension.png" alt="QR Generator Browser Extension">
+                    </a>
+                    <h3>QR Generator Browser Extension</h3>
+                    <p>A Chrome-based extension for generating QR codes directly in your browser.</p>
+                    <button class="btn-secondary" onclick="window.open('https://github.com/H190K/qrcodegeneratorbrowserExtension', '_blank')">Download Extension</button>
+                </div>
 
                 <!-- Add more projects as needed -->
             </div>
@@ -738,8 +739,18 @@
         <div class="container">
             <p>&copy; 2025 H190K. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://instagram.com/frh190k" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://x.com/h190k" target="_blank"><i class="fab fa-twitter"></i></a>
+                <!-- Instagram -->
+                <a href="https://instagram.com/frh190k" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- X (Twitter replaced with X) -->
+                <a href="https://x.com/h190k" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <!-- Mailto Icon (NEW) -->
+                <a href="mailto:info@h190k.com" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
     </footer>
@@ -846,6 +857,45 @@
                     console.error('FAILED...', err);
                 });
         });
+    </script>
+
+    <!-- ADDED Intersection Observer for smoother, on-scroll animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Select all elements that originally have fadeInUp animations:
+        // (basically any element that has opacity:0; animation: fadeInUp in the CSS)
+        const animatedElements = document.querySelectorAll(
+          ".hero h1, .hero p, .btn-primary, " +
+          "#about h2, #about p, " +
+          "#projects h2, .project-card h3, .project-card p, .btn-secondary, " +
+          "#skills h2, .skill-card h3, .skill-card p, " +
+          "#contact h2, .contact-form button, " +
+          "#donation h2"
+        );
+
+        // Reset their animation/opacity so we can trigger it on scroll:
+        animatedElements.forEach(elem => {
+          elem.style.opacity = 0;
+          elem.style.animation = "none";
+        });
+
+        // Use IntersectionObserver to trigger animation once they appear
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Apply the original fadeInUp but make it a bit smoother
+              entry.target.style.animation = "fadeInUp 1.2s ease-out forwards";
+              // Unobserve once animated, so it doesn't repeat
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        // Observe each animated element
+        animatedElements.forEach(elem => {
+          observer.observe(elem);
+        });
+      });
     </script>
 </body>
 </html>
