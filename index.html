@@ -9,11 +9,13 @@
     <link rel="icon" href="icon.png" type="image/png">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    
+    <!-- Lazy Load Library -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     
     <style>
         /* Base Styles */
@@ -24,8 +26,8 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #000;
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
@@ -48,15 +50,15 @@
         nav {
             position: fixed;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(10, 10, 10, 0.9);
             padding: 20px 0;
             z-index: 1000;
             transition: background-color 0.3s ease;
         }
 
         nav.scrolled {
-            background-color: #000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            background-color: #0a0a0a;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .nav-container {
@@ -65,7 +67,6 @@
             align-items: center;
         }
 
-        /* Updated Logo: Wrapped in an Anchor Tag */
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
@@ -75,7 +76,7 @@
         }
 
         .logo:hover {
-            color: #ff1493; /* Deep Pink */
+            color: #ff1493;
         }
 
         .nav-links {
@@ -95,16 +96,15 @@
         }
 
         .nav-links a:hover {
-            color: #ff6347; /* Tomato */
+            color: #ff6347;
         }
 
-        /* Underline Effect */
         .nav-links a::after {
             content: '';
             display: block;
             width: 0%;
             height: 2px;
-            background-color: #ff6347; /* Tomato underline */
+            background-color: #ff6347;
             transition: width 0.3s;
             position: absolute;
             bottom: -5px;
@@ -147,7 +147,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 1;
         }
 
@@ -158,7 +158,7 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             opacity: 0;
             animation: fadeInUp 1s forwards;
@@ -167,7 +167,7 @@
         }
 
         .hero p {
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0;
             animation: fadeInUp 1s forwards;
@@ -176,11 +176,11 @@
         }
 
         .btn-primary {
-            padding: 10px 30px;
-            background-color: #8a2be2; /* BlueViolet */
+            padding: 12px 35px;
+            background-color: #8a2be2;
             color: #fff;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
             font-size: 1rem;
             transition: background-color 0.3s ease, transform 0.3s ease;
@@ -190,13 +190,13 @@
         }
 
         .btn-primary:hover {
-            background-color: #4b0082; /* Indigo */
+            background-color: #4b0082;
             transform: scale(1.05);
         }
 
         /* Sections */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         section:nth-of-type(even) {
@@ -224,7 +224,7 @@
         }
 
         #about p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #ccc;
             line-height: 1.8;
             opacity: 0;
@@ -250,7 +250,7 @@
         }
 
         .project-card {
-            background-color: #000;
+            background-color: #0a0a0a;
             border: 2px solid #333;
             border-radius: 10px;
             overflow: hidden;
@@ -260,7 +260,7 @@
 
         .project-card:hover {
             transform: translateY(-10px);
-            border-color: #ff6347; /* Tomato */
+            border-color: #ff6347;
         }
 
         .project-card img {
@@ -297,7 +297,7 @@
             width: 80%;
             margin: 0 auto 15px auto;
             padding: 10px 0;
-            background-color: #ff1493; /* Deep Pink */
+            background-color: #ff1493;
             color: #fff;
             border: none;
             border-radius: 25px;
@@ -310,7 +310,7 @@
         }
 
         .btn-secondary:hover {
-            background-color: #ff4500; /* OrangeRed */
+            background-color: #ff4500;
         }
 
         /* Skills Section */
@@ -332,7 +332,7 @@
         }
 
         .skill-card {
-            background-color: #000;
+            background-color: #0a0a0a;
             border: 2px solid #333;
             border-radius: 10px;
             padding: 20px;
@@ -345,7 +345,7 @@
 
         .skill-card:hover {
             transform: translateY(-10px);
-            border-color: #8a2be2; /* BlueViolet */
+            border-color: #8a2be2;
             background-color: #1a1a1a;
         }
 
@@ -408,13 +408,13 @@
 
         .contact-form input:focus,
         .contact-form textarea:focus {
-            border-color: #ff1493; /* Deep Pink */
+            border-color: #ff1493;
             outline: none;
         }
 
         .contact-form button {
             padding: 15px;
-            background-color: #4b0082; /* Indigo */
+            background-color: #4b0082;
             color: #fff;
             border: none;
             border-radius: 25px;
@@ -427,14 +427,14 @@
         }
 
         .contact-form button:hover {
-            background-color: #8a2be2; /* BlueViolet */
+            background-color: #8a2be2;
             transform: scale(1.05);
         }
 
         /* Donation Section */
         #donation {
-            background-color: #111; /* Slightly lighter than default */
-            padding: 80px 0;
+            background-color: #111;
+            padding: 100px 0;
             text-align: center;
         }
 
@@ -460,7 +460,7 @@
 
         /* Footer */
         footer {
-            background-color: #000;
+            background-color: #0a0a0a;
             padding: 20px 0;
             text-align: center;
             border-top: 1px solid #333;
@@ -474,7 +474,7 @@
         }
 
         .social-links a:hover {
-            color: #ff1493; /* Deep Pink */
+            color: #ff1493;
         }
 
         /* Responsive Styles */
@@ -511,7 +511,6 @@
                 display: block;
             }
 
-            /* Adjust Hero Text for Mobile */
             .hero h1 {
                 font-size: 2rem;
             }
@@ -520,7 +519,6 @@
                 font-size: 0.9rem;
             }
 
-            /* Adjust Project Card Text */
             .project-card h3 {
                 font-size: 1.2rem;
             }
@@ -529,18 +527,15 @@
                 font-size: 0.8rem;
             }
 
-            /* Adjust Skills Icon Size */
             .skill-icon {
                 font-size: 2.5rem;
             }
 
-            /* Adjust Footer Icons */
             .social-links a {
                 font-size: 1.3rem;
                 margin: 0 10px;
             }
 
-            /* Donation Section Adjustments for Mobile */
             #donation a img {
                 max-width: 200px;
             }
@@ -558,7 +553,6 @@
             }
         }
 
-        /* Burger Animation */
         .toggle .line1 {
             transform: rotate(-45deg) translate(-5px, 6px);
         }
@@ -570,21 +564,19 @@
         .toggle .line3 {
             transform: rotate(45deg) translate(-5px, -6px);
         }
-
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container nav-container">
-            <!-- Updated Logo: Wrapped in an Anchor Tag -->
             <a href="#hero" class="logo">H190K</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#donation">Donate</a></li> <!-- Optional: Add Donation Link to Nav -->
+                <li><a href="#donation">Donate</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -623,7 +615,7 @@
                 <!-- Project 1: Alnssor Enterprise -->
                 <div class="project-card">
                     <a href="https://alnssorenterprise.co/" target="_blank">
-                        <img src="alnssorenterprise.png" alt="Alnssor Enterprise Website">
+                        <img src="alnssorenterprise.png" alt="Alnssor Enterprise Website" loading="lazy">
                     </a>
                     <h3>Alnssor Enterprise</h3>
                     <p>A comprehensive website for Alnssor Enterprise showcasing their services and products.</p>
@@ -632,7 +624,7 @@
                 <!-- Project 2: QR Generator -->
                 <div class="project-card">
                     <a href="https://qr.h190k.com" target="_blank">
-                        <img src="qr.png" alt="QR Generator">
+                        <img src="qr.png" alt="QR Generator" loading="lazy">
                     </a>
                     <h3>QR Generator</h3>
                     <p>A dynamic QR code generator tool enabling users to create customized QR codes.</p>
@@ -641,7 +633,7 @@
                 <!-- Project 3: Chat Starter -->
                 <div class="project-card">
                     <a href="https://wa.h190k.com" target="_blank">
-                        <img src="wa.png" alt="Chat Starter">
+                        <img src="wa.png" alt="Chat Starter" loading="lazy">
                     </a>
                     <h3>Chat Starter</h3>
                     <p>A tool to start chats with numbers without saving them on WhatsApp and Telegram.</p>
@@ -650,14 +642,12 @@
                 <!-- Project 4: QR Generator Browser Extension -->
                 <div class="project-card">
                     <a href="https://github.com/H190K/qrcodegeneratorbrowserExtension" target="_blank">
-                        <img src="qrextension.png" alt="QR Generator Browser Extension">
+                        <img src="qrextension.png" alt="QR Generator Browser Extension" loading="lazy">
                     </a>
                     <h3>QR Generator Browser Extension</h3>
                     <p>A Chrome-based extension for generating QR codes directly in your browser.</p>
                     <button class="btn-secondary" onclick="window.open('https://github.com/H190K/qrcodegeneratorbrowserExtension', '_blank')">Download Extension</button>
                 </div>
-
-                <!-- Add more projects as needed -->
             </div>
         </div>
     </section>
@@ -691,7 +681,6 @@
                     <h3>Cloud Services</h3>
                     <p>Heroku, Render</p>
                 </div>
-                <!-- Add more skills as needed -->
             </div>
         </div>
     </section>
@@ -702,22 +691,11 @@
             <h2>Get In Touch</h2>
             <div class="contact-form">
                 <form id="contact-form">
-                    <!-- Hidden field for to_name -->
                     <input type="hidden" name="to_name" value="H190K">
-                    
-                    <!-- Sender's Name -->
                     <input type="text" name="from_name" placeholder="Your Name" required>
-                    
-                    <!-- Sender's Email -->
                     <input type="email" name="from_email" placeholder="Your Email" required>
-                    
-                    <!-- Message -->
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    
-                    <!-- Submit Button -->
                     <button type="submit">Send Message</button>
-                    
-                    <!-- Feedback Message -->
                     <p id="form-message" style="display: none;"></p>
                 </form>
             </div>
@@ -729,7 +707,7 @@
         <div class="container">
             <h2>Donate</h2>
             <a href="https://nowpayments.io/donation?api_key=J0QACAH-BTH4F4F-QDXM4ZS-RCA58BH" target="_blank" rel="noreferrer noopener">
-                <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
+                <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Crypto donation button by NOWPayments" loading="lazy">
             </a>
         </div>
     </section>
@@ -739,15 +717,12 @@
         <div class="container">
             <p>&copy; 2025 H190K. All rights reserved.</p>
             <div class="social-links">
-                <!-- Instagram -->
                 <a href="https://instagram.com/frh190k" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <!-- X (Twitter replaced with X) -->
                 <a href="https://x.com/h190k" target="_blank">
                     <i class="fab fa-x-twitter"></i>
                 </a>
-                <!-- Mailto Icon (NEW) -->
                 <a href="mailto:info@h190k.com" target="_blank">
                     <i class="fas fa-envelope"></i>
                 </a>
@@ -772,8 +747,6 @@
 
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('nav-active');
-
-            // Animate Links
             navLinkItems.forEach((link, index) => {
                 if (link.style.animation) {
                     link.style.animation = '';
@@ -781,8 +754,6 @@
                     link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                 }
             });
-
-            // Burger Animation
             burger.classList.toggle('toggle');
         });
 
@@ -796,7 +767,6 @@
                 const targetSection = document.getElementById(targetId);
                 targetSection.scrollIntoView({ behavior: 'smooth' });
 
-                // Close the mobile menu after clicking
                 if (navLinks.classList.contains('nav-active')) {
                     navLinks.classList.remove('nav-active');
                     burger.classList.remove('toggle');
@@ -817,22 +787,6 @@
             }
         });
 
-        // Add CSS for navLinkFade animation
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes navLinkFade {
-                from {
-                    opacity: 0;
-                    transform: translateX(50px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
         // EmailJS Form Submission Handling
         const form = document.getElementById('contact-form');
         const message = document.getElementById('form-message');
@@ -840,62 +794,57 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // These IDs from the EmailJS setup
             const serviceID = 'service_41ua8qp';    // Your EmailJS service ID
             const templateID = 'template_v3r1opc';  // Your new EmailJS template ID
 
             emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
                     message.style.display = 'block';
-                    message.style.color = '#4CAF50'; // Green color
+                    message.style.color = '#4CAF50';
                     message.textContent = "Thank you! Your message has been sent.";
                     form.reset();
                 }, (err) => {
                     message.style.display = 'block';
-                    message.style.color = '#f44336'; // Red color
+                    message.style.color = '#f44336';
                     message.textContent = "Oops! There was a problem submitting your form.";
                     console.error('FAILED...', err);
                 });
         });
-    </script>
 
-    <!-- ADDED Intersection Observer for smoother, on-scroll animations -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Select all elements that originally have fadeInUp animations:
-        // (basically any element that has opacity:0; animation: fadeInUp in the CSS)
-        const animatedElements = document.querySelectorAll(
-          ".hero h1, .hero p, .btn-primary, " +
-          "#about h2, #about p, " +
-          "#projects h2, .project-card h3, .project-card p, .btn-secondary, " +
-          "#skills h2, .skill-card h3, .skill-card p, " +
-          "#contact h2, .contact-form button, " +
-          "#donation h2"
-        );
+        // Intersection Observer for smoother, on-scroll animations
+        document.addEventListener("DOMContentLoaded", function() {
+            const animatedElements = document.querySelectorAll(
+                ".hero h1, .hero p, .btn-primary, " +
+                "#about h2, #about p, " +
+                "#projects h2, .project-card h3, .project-card p, .btn-secondary, " +
+                "#skills h2, .skill-card h3, .skill-card p, " +
+                "#contact h2, .contact-form button, " +
+                "#donation h2"
+            );
 
-        // Reset their animation/opacity so we can trigger it on scroll:
-        animatedElements.forEach(elem => {
-          elem.style.opacity = 0;
-          elem.style.animation = "none";
+            animatedElements.forEach(elem => {
+                elem.style.opacity = 0;
+                elem.style.animation = "none";
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = "fadeInUp 1.2s ease-out forwards";
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            animatedElements.forEach(elem => {
+                observer.observe(elem);
+            });
         });
 
-        // Use IntersectionObserver to trigger animation once they appear
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Apply the original fadeInUp but make it a bit smoother
-              entry.target.style.animation = "fadeInUp 1.2s ease-out forwards";
-              // Unobserve once animated, so it doesn't repeat
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.2 });
-
-        // Observe each animated element
-        animatedElements.forEach(elem => {
-          observer.observe(elem);
+        // Lazy Load Images
+        const lazyLoadInstance = new LazyLoad({
+            elements_selector: "img[loading='lazy']"
         });
-      });
     </script>
 </body>
 </html>
